@@ -38,10 +38,10 @@ runs:
     - name: regolith
       shell: bash
       run: |
-        wget https://github.com/Bedrock-OSS/regolith/releases/download/$(cat ${{ github.action_path }}/version)/regolith_$(cat ${{ github.action_path }}/version)_Linux_x86_64.tar.gz
-        tar -xzf regolith_$(cat ${{ github.action_path }}/version)_Linux_x86_64.tar.gz
+        wget https://github.com/Bedrock-OSS/regolith/releases/download/$(cat ${{ github.action_path }}/version)/regolith_$(cat ${{ github.action_path }}/version)_linux_amd64.tar.gz
+        tar -xzf regolith_$(cat ${{ github.action_path }}/version)_linux_amd64.tar.gz
         mv regolith /usr/local/bin
-        rm regolith_$(cat ${{ github.action_path }}/version)_Linux_x86_64.tar.gz
+        rm regolith_$(cat ${{ github.action_path }}/version)_linux_amd64.tar.gz
         chmod +x /usr/local/bin/regolith
     - name: install
       shell: bash
