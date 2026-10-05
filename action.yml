@@ -9,10 +9,19 @@ inputs:
     description: "GitHub Token for getting private filters"
     default: ""
     required: false
+  branch:
+    description: "Branch to check out and build. Uses the existing checkout (default branch) if empty"
+    default: ""
+    required: false
 
 runs:
   using: 'composite'
   steps:
+    - name: checkout-branch
+      uses: actions/checkout@v4
+      if: ${{ inputs.branch != '' }}
+      with:
+        ref: ${{ inputs.branch }}
     - name: setup-git-credentials
       uses: de-vri-es/setup-git-credentials@v2.0.8
       if: ${{ inputs.github_token != '' }}
